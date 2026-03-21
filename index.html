@@ -3,42 +3,159 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Ammi ❤️</title>
+<title>Ammi ❤️</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-body{background:linear-gradient(135deg,#ff5f8f,#ff9ccf);color:white;overflow:hidden}
-.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px}
-.active{display:flex;animation:fade 1s ease}
-@keyframes fade{from{opacity:0;transform:translateY(20px);}to{opacity:1}}
+body{
+background:radial-gradient(circle at top,#ff6a88,#0f0c29);
+color:white;
+overflow:hidden;
+}
 
-.card{background:rgba(255,255,255,0.2);backdrop-filter:blur(15px);padding:30px;border-radius:20px;max-height:80vh;overflow:auto}
+/* FLOATING HEARTS */
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-1;
+}
+.hearts span{
+position:absolute;
+display:block;
+width:20px;
+height:20px;
+background:red;
+transform:rotate(45deg);
+animation:float 10s linear infinite;
+opacity:0.5;
+}
+.hearts span::before,
+.hearts span::after{
+content:'';
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+border-radius:50%;
+}
+.hearts span::before{top:-10px}
+.hearts span::after{left:-10px}
 
-input{padding:12px;border:none;border-radius:10px;text-align:center;margin-top:10px}
-button{margin-top:15px;padding:12px 20px;border:none;border-radius:25px;background:white;color:#ff4d6d;font-weight:bold}
+@keyframes float{
+0%{transform:translateY(100vh) rotate(45deg);}
+100%{transform:translateY(-10vh) rotate(45deg);}
+}
 
-/* LOTS OF TEXT */
+/* PAGES */
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+.active{display:flex}
+
+/* LOCK */
+.card{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
+}
+input{padding:12px;border:none;border-radius:10px;text-align:center}
+button{padding:12px 20px;border:none;border-radius:25px;background:white;color:#ff4d6d;margin-top:10px}
+
+/* TYPE TEXT */
 .text-box{max-height:80vh;overflow:auto}
-.text-box p{margin:8px 0;opacity:0;animation:fadeIn 1s forwards}
-.text-box p:nth-child(n){animation-delay:calc(0.3s * var(--i));}
-@keyframes fadeIn{to{opacity:1}}
+.text-box p{margin:6px 0;opacity:0}
+.show{opacity:1;transition:0.5s}
 
-.cake,.gift{font-size:90px;cursor:pointer;transition:0.3s}
-.cake:hover,.gift:hover{transform:scale(1.1)}
+/* CAKE */
+.cake{
+position:relative;
+width:120px;
+height:120px;
+background:#ff4d6d;
+border-radius:10px;
+}
+.candle{
+position:absolute;
+top:-30px;
+left:50%;
+transform:translateX(-50%);
+width:10px;
+height:30px;
+background:white;
+}
+.flame{
+position:absolute;
+top:-15px;
+left:50%;
+transform:translateX(-50%);
+width:10px;
+height:15px;
+background:orange;
+border-radius:50%;
+animation:flicker 0.2s infinite alternate;
+display:none;
+}
+@keyframes flicker{
+from{transform:translateX(-50%) scale(1);}
+to{transform:translateX(-50%) scale(1.2);}
+}
 
-#playBtn{display:none}
+/* GIFT */
+.gift{
+width:100px;
+height:100px;
+background:#ff4d6d;
+position:relative;
+}
+.lid{
+position:absolute;
+top:-20px;
+width:100%;
+height:20px;
+background:#fff;
+transition:0.5s;
+}
+.open .lid{transform:translateY(-40px) rotate(20deg)}
 
-.scroll{overflow-y:auto}
-.gallery img{width:100%;border-radius:15px;margin:10px 0}
-
-.final-card{display:none;background:white;color:#ff4d6d;padding:25px;border-radius:20px;margin-top:20px;animation:pop 0.8s}
+/* CARD */
+.final-card{
+display:none;
+background:white;
+color:#ff4d6d;
+padding:25px;
+border-radius:20px;
+margin-top:20px;
+animation:pop 0.6s;
+}
 @keyframes pop{from{transform:scale(0);}to{transform:scale(1)}}
 
-.toggle{position:fixed;bottom:15px;right:15px;background:white;color:#ff4d6d;padding:12px;border-radius:50%}
+/* TOGGLE */
+.toggle{
+position:fixed;
+bottom:20px;
+right:20px;
+background:white;
+color:#ff4d6d;
+padding:10px;
+border-radius:50%;
+}
+
 </style>
 </head>
 <body>
+
+<div class="hearts"></div>
 
 <audio id="bgMusic" src="assets/amma.mp3" loop></audio>
 <audio id="voice" src="assets/birthdayvoice.mp3"></audio>
@@ -47,132 +164,156 @@ button{margin-top:15px;padding:12px 20px;border:none;border-radius:25px;backgrou
 
 <!-- PAGE 1 -->
 <section id="page1" class="page active">
-<div class="card text-box">
+<div class="card">
 <h2>Enter Secret 💕</h2>
-
-<p style="--i:1">Ammi... ❤️</p>
-<p style="--i:2">From the day I was born...</p>
-<p style="--i:3">You were always there for me...</p>
-<p style="--i:4">You never gave up on me...</p>
-<p style="--i:5">Even when I made mistakes...</p>
-<p style="--i:6">You held my hand...</p>
-<p style="--i:7">You protected me...</p>
-<p style="--i:8">You sacrificed everything...</p>
-<p style="--i:9">Just to see me smile...</p>
-<p style="--i:10">I may not say this often...</p>
-<p style="--i:11">But you are my whole world...</p>
-<p style="--i:12">My strength...</p>
-<p style="--i:13">My happiness...</p>
-<p style="--i:14">My safe place...</p>
-<p style="--i:15">My everything...</p>
-<p style="--i:16">Today is your day...</p>
-<p style="--i:17">But honestly...</p>
-<p style="--i:18">Every day should be yours...</p>
-<p style="--i:19">Because you deserve everything...</p>
-<p style="--i:20">I love you forever Ammi 😭❤️</p>
-
-<input id="password" placeholder="YYYY.MM.DD">
+<input id="password">
 <button onclick="checkPassword()">Unlock</button>
 </div>
 </section>
 
 <!-- PAGE 2 -->
 <section id="page2" class="page">
-<div class="text-box">
-<p>Ammi... ❤️</p>
-<p>You are my whole world...</p>
-<p>I love you more than anything 😭</p>
-</div>
+<div class="text-box" id="quotes"></div>
 </section>
 
 <!-- PAGE 3 -->
 <section id="page3" class="page">
-<div class="cake" onclick="lightCake()">🎂</div>
+<div class="cake" onclick="lightCake()">
+<div class="candle"></div>
+<div class="flame" id="flame"></div>
+</div>
 <p>Tap the cake 🎂</p>
-<button id="playBtn" onclick="playVoice()">Play My Voice ▶</button>
-<p id="afterMsg"></p>
+<button id="playBtn" onclick="playVoice()">Play ▶</button>
 </section>
 
 <!-- PAGE 4 -->
 <section id="page4" class="page scroll">
-<div class="gallery">
-<img src="assets/1.jpg"><p>2022.12.01 - Anuradhapure 🤍</p>
-<img src="assets/2.jpg"><p>2022.11.20 - Pizza Hut 🍕</p>
-<img src="assets/3.jpg"><p>2022.12.31 - 31st Night ❤️</p>
-<img src="assets/4.jpg"><p>Train 🚂</p>
-<img src="assets/5.jpg"><p>Maldives 🇲🇻</p>
-<img src="assets/6.jpg"><p>360 Hotel 🌊</p>
-<img src="assets/7.jpg"><p>Dubai 🇦🇪</p>
-<img src="assets/8.jpg"><p>Global Village 🤪</p>
-<img src="assets/9.jpg"><p>Desert Safari 🐪</p>
-<img src="assets/10.jpg"><p>Sri Lanka 🇱🇰</p>
-<img src="assets/11.jpg"><p>KFC ❤️‍🔥</p>
-<img src="assets/12.jpg"><p>Waves 🩴</p>
-<img src="assets/13.jpg"><p>Thilanka ✨</p>
-<img src="assets/14.jpg"><p>Train 🚂</p>
-<img src="assets/15.jpg"><p>Airport ✈️</p>
-</div>
+<img src="assets/1.jpg"><p>2022.12.01 - Anuradhapure</p>
+<img src="assets/2.jpg"><p>Pizza Hut</p>
+<img src="assets/3.jpg"><p>31st Night</p>
 </section>
 
 <!-- PAGE 5 -->
 <section id="page5" class="page">
 <div class="text-box">
 <p>Ammi... ❤️</p>
-<p>You gave me everything...</p>
-<p>You are my life...</p>
-<p>I will never leave you...</p>
-<p>No matter what happens...</p>
-<p>I will always be your son...</p>
-<p>I love you forever 😭💗</p>
+<p>I love you forever...</p>
+<p>ඔයා නැත්නම් මම නෑ...</p>
 </div>
 
-<div class="gift" onclick="openGift()">🎁</div>
-<p>Tap the gift 🎁</p>
+<div class="gift" id="gift" onclick="openGift()">
+<div class="lid"></div>
+</div>
 
 <div id="card" class="final-card">
 <h2>Happy Birthday Ammi ❤️</h2>
-<p>No matter how old I grow... I will always be your child 🥺</p>
+<p>You are my everything... forever 😭</p>
 </div>
 </section>
 
 <script>
-let currentPage=1;
+let current=1;
 const bg=document.getElementById('bgMusic');
 const voice=document.getElementById('voice');
 
 function showPage(n){
 document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById('page'+n).classList.add('active');
-currentPage=n;
+current=n;
 }
 
 function nextPage(){
-let n=currentPage+1;
+let n=current+1;
 if(n>5)n=1;
 showPage(n);
 }
 
+/* PASSWORD */
 function checkPassword(){
 if(document.getElementById('password').value==='2006.10.09'){
-bg.play();
+fadeInMusic();
 showPage(2);
+startQuotes();
 }else alert('Try again Ammi 💕');
 }
 
+/* MUSIC FADE */
+function fadeInMusic(){
+bg.volume=0;
+bg.play();
+let v=0;
+let i=setInterval(()=>{
+v+=0.05;
+bg.volume=v;
+if(v>=1) clearInterval(i);
+},200);
+}
+
+/* QUOTES */
+const lines=[
+"Ammi... ❤️","You are my world...",
+"මගේ ජීවිතේ එකම බලය ඔයා...",
+"You sacrificed everything...",
+"I love you forever..."
+];
+
+function startQuotes(){
+let box=document.getElementById('quotes');
+box.innerHTML='';
+lines.forEach((t,i)=>{
+setTimeout(()=>{
+let p=document.createElement('p');
+p.textContent=t;
+p.classList.add('show');
+box.appendChild(p);
+},i*800);
+});
+}
+
+/* CAKE */
 function lightCake(){
-document.querySelector('.cake').textContent='🕯️🎂';
+document.getElementById('flame').style.display='block';
 document.getElementById('playBtn').style.display='block';
 }
 
+/* VOICE */
 function playVoice(){
-bg.pause();
-voice.currentTime=0;
+fadeOutMusic();
 voice.play();
-voice.onended=()=>{bg.play();};
+voice.onended=()=>fadeInMusic();
 }
 
+function fadeOutMusic(){
+let v=bg.volume;
+let i=setInterval(()=>{
+v-=0.05;
+bg.volume=v;
+if(v<=0){bg.pause();clearInterval(i);}
+},200);
+}
+
+/* GIFT */
 function openGift(){
+document.getElementById('gift').classList.add('open');
 document.getElementById('card').style.display='block';
+}
+
+/* SWIPE */
+let startX=0;
+document.addEventListener('touchstart',e=>startX=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{
+let diff=e.changedTouches[0].clientX-startX;
+if(diff>50) nextPage();
+if(diff<-50) nextPage();
+});
+
+/* HEARTS GENERATOR */
+const hearts=document.querySelector('.hearts');
+for(let i=0;i<30;i++){
+let span=document.createElement('span');
+span.style.left=Math.random()*100+'%';
+span.style.animationDuration=(5+Math.random()*5)+'s';
+hearts.appendChild(span);
 }
 </script>
 
