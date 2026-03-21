@@ -4,86 +4,177 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Ammi ❤️</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
 
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
+body{background:linear-gradient(135deg,#ff5f8f,#ff9ccf);color:white;overflow:hidden}
+.page{display:none;height:100vh;justify-content:center;align-items:center;flex-direction:column;text-align:center;padding:20px}
+.active{display:flex;animation:fade 1s ease}
+@keyframes fade{from{opacity:0;transform:translateY(20px);}to{opacity:1}}
+
+.card{background:rgba(255,255,255,0.2);backdrop-filter:blur(15px);padding:30px;border-radius:20px;max-height:80vh;overflow:auto}
+
+input{padding:12px;border:none;border-radius:10px;text-align:center;margin-top:10px}
+button{margin-top:15px;padding:12px 20px;border:none;border-radius:25px;background:white;color:#ff4d6d;font-weight:bold}
+
+/* LOTS OF TEXT */
+.text-box{max-height:80vh;overflow:auto}
+.text-box p{margin:8px 0;opacity:0;animation:fadeIn 1s forwards}
+.text-box p:nth-child(n){animation-delay:calc(0.3s * var(--i));}
+@keyframes fadeIn{to{opacity:1}}
+
+.cake,.gift{font-size:90px;cursor:pointer;transition:0.3s}
+.cake:hover,.gift:hover{transform:scale(1.1)}
+
+#playBtn{display:none}
+
+.scroll{overflow-y:auto}
+.gallery img{width:100%;border-radius:15px;margin:10px 0}
+
+.final-card{display:none;background:white;color:#ff4d6d;padding:25px;border-radius:20px;margin-top:20px;animation:pop 0.8s}
+@keyframes pop{from{transform:scale(0);}to{transform:scale(1)}}
+
+.toggle{position:fixed;bottom:15px;right:15px;background:white;color:#ff4d6d;padding:12px;border-radius:50%}
+</style>
+</head>
 <body>
 
-<!-- AUDIO -->
 <audio id="bgMusic" src="assets/amma.mp3" loop></audio>
 <audio id="voice" src="assets/birthdayvoice.mp3"></audio>
 
-<!-- TOGGLE -->
 <div class="toggle" onclick="nextPage()">➜</div>
 
 <!-- PAGE 1 -->
 <section id="page1" class="page active">
-  <div class="card">
-    <h2>Enter Secret 💕</h2>
-    <input id="password" placeholder="YYYY.MM.DD">
-    <button onclick="checkPassword()">Unlock</button>
-  </div>
+<div class="card text-box">
+<h2>Enter Secret 💕</h2>
+
+<p style="--i:1">Ammi... ❤️</p>
+<p style="--i:2">From the day I was born...</p>
+<p style="--i:3">You were always there for me...</p>
+<p style="--i:4">You never gave up on me...</p>
+<p style="--i:5">Even when I made mistakes...</p>
+<p style="--i:6">You held my hand...</p>
+<p style="--i:7">You protected me...</p>
+<p style="--i:8">You sacrificed everything...</p>
+<p style="--i:9">Just to see me smile...</p>
+<p style="--i:10">I may not say this often...</p>
+<p style="--i:11">But you are my whole world...</p>
+<p style="--i:12">My strength...</p>
+<p style="--i:13">My happiness...</p>
+<p style="--i:14">My safe place...</p>
+<p style="--i:15">My everything...</p>
+<p style="--i:16">Today is your day...</p>
+<p style="--i:17">But honestly...</p>
+<p style="--i:18">Every day should be yours...</p>
+<p style="--i:19">Because you deserve everything...</p>
+<p style="--i:20">I love you forever Ammi 😭❤️</p>
+
+<input id="password" placeholder="YYYY.MM.DD">
+<button onclick="checkPassword()">Unlock</button>
+</div>
 </section>
 
 <!-- PAGE 2 -->
 <section id="page2" class="page">
-  <div class="text-box">
-    <p class="type">Ammi... ❤️</p>
-    <p class="type delay1">You are my whole world...</p>
-    <p class="type delay2">Everything I am is because of you...</p>
-    <p class="type delay3">I love you more than anything in this world 😭</p>
-  </div>
+<div class="text-box">
+<p>Ammi... ❤️</p>
+<p>You are my whole world...</p>
+<p>I love you more than anything 😭</p>
+</div>
 </section>
 
 <!-- PAGE 3 -->
 <section id="page3" class="page">
-  <div class="cake" onclick="lightCake()">🎂</div>
-  <p>Tap the cake 🎂</p>
-  <button id="playBtn" onclick="playVoice()">Play My Voice ▶</button>
-  <p id="afterMsg"></p>
+<div class="cake" onclick="lightCake()">🎂</div>
+<p>Tap the cake 🎂</p>
+<button id="playBtn" onclick="playVoice()">Play My Voice ▶</button>
+<p id="afterMsg"></p>
 </section>
 
 <!-- PAGE 4 -->
 <section id="page4" class="page scroll">
-  <div class="gallery">
-
-    <div class="photo"><img src="assets/1.jpg"><span>2022.12.01 - Anuradhapure 🤍</span></div>
-    <div class="photo"><img src="assets/2.jpg"><span>2022.11.20 - Pizza Hut 🍕</span></div>
-    <div class="photo"><img src="assets/3.jpg"><span>2022.12.31 - 31st Night ❤️🪩</span></div>
-    <div class="photo"><img src="assets/4.jpg"><span>2023.01.31 - Train 🚂</span></div>
-    <div class="photo"><img src="assets/5.jpg"><span>2023.02.04 - Maldives 🇲🇻</span></div>
-    <div class="photo"><img src="assets/6.jpg"><span>2024.03.02 - 360 Hotel 🌊</span></div>
-    <div class="photo"><img src="assets/7.jpg"><span>2024.03.03 - Dubai 🇦🇪</span></div>
-    <div class="photo"><img src="assets/8.jpg"><span>2024.11.14 - Global Village 🤪</span></div>
-    <div class="photo"><img src="assets/9.jpg"><span>2024.11.15 - Desert Safari 🐪</span></div>
-    <div class="photo"><img src="assets/10.jpg"><span>2025.06.14 - Sri Lanka 🇱🇰</span></div>
-    <div class="photo"><img src="assets/11.jpg"><span>2025.06.18 - KFC ❤️‍🔥</span></div>
-    <div class="photo"><img src="assets/12.jpg"><span>Waves 🩴</span></div>
-    <div class="photo"><img src="assets/13.jpg"><span>2025.06.29 - Thilanka ✨</span></div>
-    <div class="photo"><img src="assets/14.jpg"><span>2025.07.12 - Train 🚂</span></div>
-    <div class="photo"><img src="assets/15.jpg"><span>2025.07.14 - Airport ✈️</span></div>
-
-  </div>
+<div class="gallery">
+<img src="assets/1.jpg"><p>2022.12.01 - Anuradhapure 🤍</p>
+<img src="assets/2.jpg"><p>2022.11.20 - Pizza Hut 🍕</p>
+<img src="assets/3.jpg"><p>2022.12.31 - 31st Night ❤️</p>
+<img src="assets/4.jpg"><p>Train 🚂</p>
+<img src="assets/5.jpg"><p>Maldives 🇲🇻</p>
+<img src="assets/6.jpg"><p>360 Hotel 🌊</p>
+<img src="assets/7.jpg"><p>Dubai 🇦🇪</p>
+<img src="assets/8.jpg"><p>Global Village 🤪</p>
+<img src="assets/9.jpg"><p>Desert Safari 🐪</p>
+<img src="assets/10.jpg"><p>Sri Lanka 🇱🇰</p>
+<img src="assets/11.jpg"><p>KFC ❤️‍🔥</p>
+<img src="assets/12.jpg"><p>Waves 🩴</p>
+<img src="assets/13.jpg"><p>Thilanka ✨</p>
+<img src="assets/14.jpg"><p>Train 🚂</p>
+<img src="assets/15.jpg"><p>Airport ✈️</p>
+</div>
 </section>
 
 <!-- PAGE 5 -->
 <section id="page5" class="page">
-  <div class="gift" onclick="openGift()">🎁</div>
-  <p>Tap the gift 🎁</p>
+<div class="text-box">
+<p>Ammi... ❤️</p>
+<p>You gave me everything...</p>
+<p>You are my life...</p>
+<p>I will never leave you...</p>
+<p>No matter what happens...</p>
+<p>I will always be your son...</p>
+<p>I love you forever 😭💗</p>
+</div>
 
-  <div id="card" class="final-card">
-    <h2>Happy Birthday Ammi ❤️</h2>
-    <p>
-      No matter how old I grow...<br>
-      I will always be your little child 🥺<br><br>
-      Thank you for everything...<br>
-      I love you forever 😭💗
-    </p>
-  </div>
+<div class="gift" onclick="openGift()">🎁</div>
+<p>Tap the gift 🎁</p>
+
+<div id="card" class="final-card">
+<h2>Happy Birthday Ammi ❤️</h2>
+<p>No matter how old I grow... I will always be your child 🥺</p>
+</div>
 </section>
 
-<script src="script.js"></script>
+<script>
+let currentPage=1;
+const bg=document.getElementById('bgMusic');
+const voice=document.getElementById('voice');
+
+function showPage(n){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById('page'+n).classList.add('active');
+currentPage=n;
+}
+
+function nextPage(){
+let n=currentPage+1;
+if(n>5)n=1;
+showPage(n);
+}
+
+function checkPassword(){
+if(document.getElementById('password').value==='2006.10.09'){
+bg.play();
+showPage(2);
+}else alert('Try again Ammi 💕');
+}
+
+function lightCake(){
+document.querySelector('.cake').textContent='🕯️🎂';
+document.getElementById('playBtn').style.display='block';
+}
+
+function playVoice(){
+bg.pause();
+voice.currentTime=0;
+voice.play();
+voice.onended=()=>{bg.play();};
+}
+
+function openGift(){
+document.getElementById('card').style.display='block';
+}
+</script>
+
 </body>
 </html>
