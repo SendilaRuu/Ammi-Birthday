@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ammi ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="bgMusic" src="assets/amma.mp3" loop></audio>
+<audio id="voice" src="assets/birthdayvoice.mp3"></audio>
+
+<!-- TOGGLE -->
+<div class="toggle" onclick="nextPage()">➜</div>
+
+<!-- PAGE 1 -->
+<section id="page1" class="page active">
+  <div class="card">
+    <h2>Enter Secret 💕</h2>
+    <input id="password" placeholder="YYYY.MM.DD">
+    <button onclick="checkPassword()">Unlock</button>
+  </div>
+</section>
+
+<!-- PAGE 2 -->
+<section id="page2" class="page">
+  <div class="text-box">
+    <p class="type">Ammi... ❤️</p>
+    <p class="type delay1">You are my whole world...</p>
+    <p class="type delay2">Everything I am is because of you...</p>
+    <p class="type delay3">I love you more than anything in this world 😭</p>
+  </div>
+</section>
+
+<!-- PAGE 3 -->
+<section id="page3" class="page">
+  <div class="cake" onclick="lightCake()">🎂</div>
+  <p>Tap the cake 🎂</p>
+  <button id="playBtn" onclick="playVoice()">Play My Voice ▶</button>
+  <p id="afterMsg"></p>
+</section>
+
+<!-- PAGE 4 -->
+<section id="page4" class="page scroll">
+  <div class="gallery">
+
+    <div class="photo"><img src="assets/1.jpg"><span>2022.12.01 - Anuradhapure 🤍</span></div>
+    <div class="photo"><img src="assets/2.jpg"><span>2022.11.20 - Pizza Hut 🍕</span></div>
+    <div class="photo"><img src="assets/3.jpg"><span>2022.12.31 - 31st Night ❤️🪩</span></div>
+    <div class="photo"><img src="assets/4.jpg"><span>2023.01.31 - Train 🚂</span></div>
+    <div class="photo"><img src="assets/5.jpg"><span>2023.02.04 - Maldives 🇲🇻</span></div>
+    <div class="photo"><img src="assets/6.jpg"><span>2024.03.02 - 360 Hotel 🌊</span></div>
+    <div class="photo"><img src="assets/7.jpg"><span>2024.03.03 - Dubai 🇦🇪</span></div>
+    <div class="photo"><img src="assets/8.jpg"><span>2024.11.14 - Global Village 🤪</span></div>
+    <div class="photo"><img src="assets/9.jpg"><span>2024.11.15 - Desert Safari 🐪</span></div>
+    <div class="photo"><img src="assets/10.jpg"><span>2025.06.14 - Sri Lanka 🇱🇰</span></div>
+    <div class="photo"><img src="assets/11.jpg"><span>2025.06.18 - KFC ❤️‍🔥</span></div>
+    <div class="photo"><img src="assets/12.jpg"><span>Waves 🩴</span></div>
+    <div class="photo"><img src="assets/13.jpg"><span>2025.06.29 - Thilanka ✨</span></div>
+    <div class="photo"><img src="assets/14.jpg"><span>2025.07.12 - Train 🚂</span></div>
+    <div class="photo"><img src="assets/15.jpg"><span>2025.07.14 - Airport ✈️</span></div>
+
+  </div>
+</section>
+
+<!-- PAGE 5 -->
+<section id="page5" class="page">
+  <div class="gift" onclick="openGift()">🎁</div>
+  <p>Tap the gift 🎁</p>
+
+  <div id="card" class="final-card">
+    <h2>Happy Birthday Ammi ❤️</h2>
+    <p>
+      No matter how old I grow...<br>
+      I will always be your little child 🥺<br><br>
+      Thank you for everything...<br>
+      I love you forever 😭💗
+    </p>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
