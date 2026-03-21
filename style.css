@@ -1,0 +1,137 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
+
+body{
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+overflow:hidden;
+}
+
+.page{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.active{
+display:flex;
+animation:fade 1s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;}
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:20px;
+}
+
+/* INPUT */
+input{
+padding:12px;
+border:none;
+border-radius:10px;
+text-align:center;
+margin-top:10px;
+}
+
+button{
+margin-top:15px;
+padding:12px 20px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff4d6d;
+font-weight:bold;
+}
+
+/* TEXT */
+.text-box p{
+margin:10px 0;
+opacity:0;
+animation:fadeIn 1s forwards;
+}
+
+.delay1{animation-delay:1s;}
+.delay2{animation-delay:2s;}
+.delay3{animation-delay:3s;}
+
+@keyframes fadeIn{
+to{opacity:1;}
+}
+
+/* CAKE */
+.cake{
+font-size:90px;
+cursor:pointer;
+transition:0.3s;
+}
+.cake:hover{transform:scale(1.1);}
+
+#playBtn{display:none}
+
+/* GALLERY */
+.scroll{overflow-y:auto;}
+.gallery{
+width:100%;
+}
+.photo{
+margin-bottom:20px;
+}
+.photo img{
+width:100%;
+border-radius:15px;
+}
+.photo span{
+display:block;
+margin-top:5px;
+font-size:14px;
+}
+
+/* GIFT */
+.gift{
+font-size:90px;
+cursor:pointer;
+transition:0.3s;
+}
+.gift:hover{transform:scale(1.1);}
+
+.final-card{
+display:none;
+background:white;
+color:#ff4d6d;
+padding:25px;
+border-radius:20px;
+margin-top:20px;
+animation:pop 0.8s ease;
+}
+
+@keyframes pop{
+from{transform:scale(0);}
+to{transform:scale(1);}
+}
+
+/* TOGGLE */
+.toggle{
+position:fixed;
+bottom:15px;
+right:15px;
+background:white;
+color:#ff4d6d;
+padding:12px;
+border-radius:50%;
+font-weight:bold;
+}
