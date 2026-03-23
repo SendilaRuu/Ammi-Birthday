@@ -13,8 +13,7 @@ width:20px;
 height:20px;
 background:red;
 transform:rotate(45deg);
-animation:float 8s linear infinite;
-border-radius:3px;
+animation:float linear infinite;
 }
 
 .hearts span::before,
@@ -30,8 +29,8 @@ border-radius:50%;
 .hearts span::after{left:-10px}
 
 @keyframes float{
-0%{transform:translateY(100vh) rotate(45deg);}
-100%{transform:translateY(-10vh) rotate(45deg);}
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
 }
 
 /* PAGE */
@@ -45,10 +44,7 @@ text-align:center;
 }
 .active{display:flex}
 
-/* CENTER FIRST PAGE */
 #page1{justify-content:center}
-
-/* START TOP */
 #page4,#page5{justify-content:flex-start;padding-top:40px}
 
 /* CARD */
@@ -64,59 +60,44 @@ button{padding:10px 20px;border:none;border-radius:20px;margin-top:10px}
 
 /* TEXT */
 .text-box{max-height:80vh;overflow:auto}
-.text-box p{margin:6px 0;animation:fadeIn 0.5s forwards}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.text-box p{margin:6px 0}
 
 /* CAKE */
 .cake-img{
 width:180px;
 margin:20px;
 cursor:pointer;
-transition:0.3s;
 }
-.cake-img:hover{transform:scale(1.1)}
 
-/* FIREWORKS */
-.fire{
-position:absolute;
-width:5px;
-height:5px;
+/* CAKE TEXT */
+.cake-text{
+margin-top:10px;
+line-height:1.5;
+}
+
+/* FIREWORK PARTICLES */
+.particle{
+position:fixed;
+width:6px;
+height:6px;
 border-radius:50%;
-background:yellow;
-animation:explode 1s ease forwards;
-}
-
-@keyframes explode{
-0%{transform:scale(1);opacity:1}
-100%{transform:translate(var(--x),var(--y)) scale(0.5);opacity:0}
 }
 
 /* GALLERY */
 .scroll{overflow-y:auto;width:100%}
+.photo{margin-bottom:15px}
+.photo img{width:80%;border-radius:15px}
 
-.gallery{
-width:100%;
-}
-
-.photo{
-margin-bottom:15px;
-}
-
-.photo img{
-width:85%;
-border-radius:15px;
-}
-
-#page4 h2{
-font-size:28px;
+.title{
+font-size:30px;
 margin-bottom:20px;
 }
 
 /* GIFT */
 .gift{
 font-size:80px;
-cursor:pointer;
 margin-top:20px;
+cursor:pointer;
 }
 
 /* CARD POP */
@@ -127,16 +108,16 @@ color:#ff4d6d;
 padding:20px;
 border-radius:20px;
 margin-top:20px;
-animation:jump 0.6s ease;
+animation:pop 0.6s ease;
 }
 
-@keyframes jump{
-0%{transform:translateY(100px);opacity:0}
-60%{transform:translateY(-20px)}
+@keyframes pop{
+0%{transform:translateY(80px) scale(0.8);opacity:0}
+60%{transform:translateY(-10px) scale(1.05)}
 100%{transform:translateY(0);opacity:1}
 }
 
-/* NEXT BUTTON CENTER */
+/* NEXT BTN */
 .toggle{
 position:fixed;
 bottom:20px;
