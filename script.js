@@ -11,57 +11,25 @@ current=n;
 }
 
 function nextPage(){
-if(current === 5) return;
+if(current===5)return;
 showPage(current+1);
 }
 
 /* PASSWORD */
 function checkPassword(){
 if(document.getElementById('password').value==='2006.10.09'){
-fadeInMusic();
+bg.play();
 showPage(2);
 startQuotes();
 }else alert('Try again Ammi 💕');
 }
 
-/* MUSIC */
-function fadeInMusic(){
-bg.volume=0;
-bg.play();
-let v=0;
-let i=setInterval(()=>{
-v+=0.05;
-bg.volume=v;
-if(v>=1) clearInterval(i);
-},200);
-}
-
-function fadeOutMusic(){
-let v=bg.volume;
-let i=setInterval(()=>{
-v-=0.05;
-bg.volume=v;
-if(v<=0){bg.pause();clearInterval(i);}
-},200);
-}
-
 /* QUOTES */
 const lines=[
-"Ammi... ❤️",
-"You are my whole world...",
-"මගේ ජීවිතේ ලොකුම ශක්තිය ඔයා...",
-"You sacrificed everything...",
-"You never gave up on me...",
-"You made me who I am today...",
-"I am nothing without you...",
-"You are my strength...",
-"You are my happiness...",
-"You are my safe place...",
-"I love you more than anything...",
-"You deserve everything...",
-"I will always protect you...",
-"I will always be your son...",
-"I love you forever 😭❤️"
+"Ammi ❤️","You are my world 🌍",
+"මගේ ජීවිතේ ලොකුම ශක්තිය ඔයා 💕",
+"You sacrificed everything 😭",
+"I love you forever ❤️"
 ];
 
 function startQuotes(){
@@ -76,30 +44,50 @@ box.appendChild(p);
 });
 }
 
-/* CAKE */
-function lightCake(){
-document.getElementById('flame').style.display='block';
+/* CAKE + FIREWORKS */
+function celebrateCake(){
 document.getElementById('playBtn').style.display='block';
+createFireworks();
+}
+
+function createFireworks(){
+const container=document.getElementById('fireworks');
+for(let i=0;i<30;i++){
+let div=document.createElement('div');
+div.style.position='absolute';
+div.style.left=Math.random()*100+'%';
+div.style.top=Math.random()*100+'%';
+div.style.width='5px';
+div.style.height='5px';
+div.style.background='yellow';
+div.style.animation='explode 1s ease';
+container.appendChild(div);
+setTimeout(()=>div.remove(),1000);
+}
 }
 
 /* VOICE */
 function playVoice(){
-fadeOutMusic();
+let currentTime=bg.currentTime;
+bg.pause();
+
 voice.play();
-voice.onended=()=>fadeInMusic();
+
+voice.onended=()=>{
+bg.currentTime=currentTime;
+bg.play();
+};
 }
 
 /* GIFT */
 function openGift(){
-document.getElementById('gift').classList.add('open');
 document.getElementById('card').style.display='block';
 }
 
 /* HEARTS */
 const hearts=document.querySelector('.hearts');
-for(let i=0;i<30;i++){
+for(let i=0;i<25;i++){
 let span=document.createElement('span');
 span.style.left=Math.random()*100+'%';
-span.style.animationDuration=(5+Math.random()*5)+'s';
 hearts.appendChild(span);
 }
