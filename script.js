@@ -26,10 +26,21 @@ startQuotes();
 
 /* QUOTES */
 const lines=[
-"Ammi ❤️","You are my world 🌍",
-"මගේ ජීවිතේ ලොකුම ශක්තිය ඔයා 💕",
-"You sacrificed everything 😭",
-"I love you forever ❤️"
+"Ammi... ❤️",
+"You are my whole world... 🌍",
+"මගේ ජීවිතේ ලොකුම ශක්තිය ඔයා... 💘",
+"You sacrificed everything... 💋",
+"You never gave up on me... ✨",
+"You made me who I am today... ❤️‍🔥",
+"I am nothing without you... ❤️‍🩹",
+"You are my strength... 🤍",
+"You are my happiness... 😁",
+"You are my safe place...☕️",
+"I love you more than anything... 💗",
+"You deserve everything... ❤️",
+"I will always protect you... 🥺💋",
+"I will always be your son... 🌏💕",
+"I love you forever 😭❤️"
 ];
 
 function startQuotes(){
