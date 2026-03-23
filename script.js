@@ -26,9 +26,23 @@ showPage(current+1);
 /* PASSWORD */
 function checkPassword(){
 if(document.getElementById('password').value==='2006.10.09'){
-bg.play();
+
+bg.volume = 0;
+bg.play().then(()=>{
+/* smooth fade in */
+let v=0;
+let fade=setInterval(()=>{
+v+=0.05;
+bg.volume=v;
+if(v>=1) clearInterval(fade);
+},200);
+}).catch(()=>{});
+
 showPage(2);
 startQuotes();
+
+}else{
+alert('Try again Ammi 💕');
 }
 }
 
@@ -129,10 +143,13 @@ setTimeout(()=>p.remove(),1200);
 /* VOICE */
 function playVoice(){
 let t=bg.currentTime;
+
 bg.pause();
+voice.currentTime = 0;
 voice.play();
+
 voice.onended=()=>{
-bg.currentTime=t;
+bg.currentTime = t;
 bg.play();
 };
 }
