@@ -47,6 +47,42 @@ text-align:center;
 #page1{justify-content:center}
 #page4,#page5{justify-content:flex-start;padding-top:40px}
 
+
+.menu-btn{
+position:fixed;
+top:20px;
+right:20px;
+font-size:24px;
+background:white;
+color:#ff4d6d;
+padding:10px 15px;
+border-radius:10px;
+z-index:1000;
+}
+
+.menu{
+position:fixed;
+top:60px;
+right:20px;
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(10px);
+padding:15px;
+border-radius:15px;
+display:none;
+flex-direction:column;
+gap:10px;
+z-index:1000;
+}
+
+.menu button{
+background:white;
+color:#ff4d6d;
+border:none;
+padding:8px 12px;
+border-radius:10px;
+}
+
+
 /* CARD */
 .card{
 background:rgba(255,255,255,0.15);
@@ -64,9 +100,14 @@ button{padding:10px 20px;border:none;border-radius:20px;margin-top:10px}
 
 /* CAKE */
 .cake-img{
-width:180px;
-margin:20px;
+width:240px; /* increased */
+margin:25px;
 cursor:pointer;
+transition:0.3s;
+}
+
+.cake-img:hover{
+transform:scale(1.08);
 }
 
 /* CAKE TEXT */
