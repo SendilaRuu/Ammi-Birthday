@@ -1,9 +1,4 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 
 body{
 background:radial-gradient(circle at top,#ff6a88,#0f0c29);
@@ -11,192 +6,80 @@ color:white;
 overflow:hidden;
 }
 
-/* HEARTS */
-.hearts{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
-}
-.hearts span{
-position:absolute;
-width:20px;
-height:20px;
-background:red;
-transform:rotate(45deg);
-animation:float 10s linear infinite;
-opacity:0.5;
-}
-.hearts span::before,
-.hearts span::after{
-content:'';
-position:absolute;
-width:20px;
-height:20px;
-background:red;
-border-radius:50%;
-}
-.hearts span::before{top:-10px}
-.hearts span::after{left:-10px}
-
-@keyframes float{
-0%{transform:translateY(100vh) rotate(45deg);}
-100%{transform:translateY(-10vh) rotate(45deg);}
-}
-
 /* PAGE */
 .page{
 display:none;
 height:100vh;
-justify-content:center;
-align-items:center;
 flex-direction:column;
-text-align:center;
+align-items:center;
 padding:20px;
+text-align:center;
 }
 .active{display:flex}
+
+/* FIRST PAGE CENTER */
+#page1{justify-content:center}
+
+/* OTHERS START TOP */
+#page4,#page5{justify-content:flex-start;padding-top:40px}
 
 /* CARD */
 .card{
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(15px);
-padding:30px;
+padding:25px;
 border-radius:20px;
 }
 
-input{
-padding:12px;
-border:none;
-border-radius:10px;
-text-align:center;
-}
-
-button{
-padding:12px 20px;
-border:none;
-border-radius:25px;
-background:white;
-color:#ff4d6d;
-margin-top:10px;
-}
+/* INPUT */
+input{padding:10px;border:none;border-radius:10px;margin-top:10px}
+button{padding:10px 20px;border:none;border-radius:20px;margin-top:10px}
 
 /* TEXT */
-.text-box{
-max-height:80vh;
-overflow:auto;
-}
-.text-box p{
-margin:6px 0;
-opacity:0;
-animation:fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn{
-to{opacity:1}
-}
+.text-box{max-height:80vh;overflow:auto}
+.text-box p{margin:6px 0;opacity:0;animation:fadeIn 0.5s forwards}
+@keyframes fadeIn{to{opacity:1}}
 
 /* CAKE */
-.cake{
-position:relative;
-width:140px;
-height:100px;
-background:#ff6b81;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+.cake-img{
+width:180px;
+margin:20px;
+cursor:pointer;
+transition:0.3s;
 }
+.cake-img:hover{transform:scale(1.1)}
 
-.cake::before{
-content:'';
-position:absolute;
-top:-20px;
+/* FIREWORKS */
+#fireworks{
+position:fixed;
 width:100%;
-height:20px;
-background:white;
-border-radius:50px;
-}
-
-.cake::after{
-content:'';
-position:absolute;
-top:40px;
-width:100%;
-height:20px;
-background:#ff8fa3;
-border-radius:50px;
-}
-
-.candle{
-position:absolute;
-top:-35px;
-left:50%;
-transform:translateX(-50%);
-width:10px;
-height:35px;
-background:white;
-border-radius:5px;
-}
-
-.flame{
-position:absolute;
-top:-15px;
-left:50%;
-transform:translateX(-50%);
-width:12px;
-height:18px;
-background:radial-gradient(circle, #ffd700, orange);
-border-radius:50%;
-animation:flicker 0.2s infinite alternate;
-display:none;
-}
-
-@keyframes flicker{
-from{transform:translateX(-50%) scale(1);}
-to{transform:translateX(-50%) scale(1.2);}
+height:100%;
+pointer-events:none;
 }
 
 /* GALLERY */
-.scroll{overflow-y:auto}
+.scroll{overflow-y:auto;width:100%}
 .gallery{width:100%}
 .photo{margin-bottom:20px}
 .photo img{width:100%;border-radius:15px}
-.photo p{font-size:14px;margin-top:5px}
 
 /* GIFT */
 .gift{
-width:100px;
-height:100px;
-background:#ff4d6d;
-position:relative;
-}
-.lid{
-position:absolute;
-top:-20px;
-width:100%;
-height:20px;
-background:white;
-transition:0.5s;
-}
-.open .lid{
-transform:translateY(-40px) rotate(20deg);
+font-size:80px;
+cursor:pointer;
+margin-top:20px;
 }
 
-/* CARD FINAL */
+/* CARD */
 .final-card{
 display:none;
 background:white;
 color:#ff4d6d;
-padding:25px;
+padding:20px;
 border-radius:20px;
 margin-top:20px;
-animation:pop 0.6s;
 }
 
-@keyframes pop{
-from{transform:scale(0);}
-to{transform:scale(1);}
-}
-
-/* NEXT BTN */
+/* BUTTON */
 .toggle{
 position:fixed;
 bottom:20px;
@@ -205,4 +88,17 @@ background:white;
 color:#ff4d6d;
 padding:10px;
 border-radius:50%;
+}
+
+/* HEARTS */
+.hearts span{
+position:absolute;
+width:20px;height:20px;
+background:red;
+transform:rotate(45deg);
+animation:float 10s linear infinite;
+}
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
 }
