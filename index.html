@@ -12,6 +12,7 @@
 <body>
 
 <div class="hearts"></div>
+<div id="fireworks"></div>
 
 <audio id="bgMusic" src="assets/amma.mp3" loop></audio>
 <audio id="voice" src="assets/birthdayvoice.mp3"></audio>
@@ -21,7 +22,8 @@
 <!-- PAGE 1 -->
 <section id="page1" class="page active">
 <div class="card">
-<h2>Enter the date you were most happy 💕</h2>
+<h1>Happy Birthday Ammi ❤️</h1>
+<p>Enter the date you were happiest 💕</p>
 <input id="password" placeholder="YYYY.MM.DD">
 <button onclick="checkPassword()">Unlock</button>
 </div>
@@ -36,17 +38,16 @@
 <section id="page3" class="page">
 <h2>Happy Birthday Ammi ❤️</h2>
 
-<div class="cake" onclick="lightCake()">
-<div class="candle"></div>
-<div class="flame" id="flame"></div>
-</div>
+<img src="assets/cake.png" class="cake-img" onclick="celebrateCake()">
 
-<p>Tap the cake to light the candle 🎂</p>
+<p>Tap the cake 🎂</p>
 <button id="playBtn" onclick="playVoice()">Play My Voice ▶</button>
 </section>
 
 <!-- PAGE 4 -->
 <section id="page4" class="page scroll">
+<h2>Our Beautiful Memories 💕</h2>
+
 <div class="gallery">
 
 <div class="photo"><img src="assets/1.jpg"><p>2022.12.01 - Anuradhapure 🤍</p></div>
@@ -72,19 +73,25 @@
 <section id="page5" class="page">
 <div class="text-box">
 <p>Ammi... ❤️</p>
-<p>You gave me everything...</p>
-<p>මගේ ජීවිතේ ලොකුම වාසනාව ඔයා...</p>
-<p>I will always be your son...</p>
-<p>I love you forever 😭💗</p>
+<p>You are my whole world 🌍</p>
+<p>මගේ ජීවිතේ ලොකුම වාසනාව ඔයා 💕</p>
+<p>I will always protect you 🥺</p>
+<p>I will never leave you 😭</p>
+<p>I love you forever ❤️</p>
 </div>
 
-<div class="gift" id="gift" onclick="openGift()">
-<div class="lid"></div>
-</div>
+<div class="gift" onclick="openGift()">🎁</div>
 
 <div id="card" class="final-card">
 <h2>Happy Birthday Ammi ❤️</h2>
-<p>No matter how old I grow... I will always be your child 🥺</p>
+<p>
+You are my strength...<br>
+My happiness...<br>
+My safe place...<br><br>
+No matter how old I grow,<br>
+I will always be your little child 🥺<br><br>
+Thank you for everything 😭❤️
+</p>
 </div>
 </section>
 
