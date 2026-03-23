@@ -55,37 +55,37 @@ box.appendChild(p);
 });
 }
 
-/* CAKE + FIREWORKS */
+/* REAL FIREWORKS */
 function celebrateCake(){
 document.getElementById('playBtn').style.display='block';
-createFireworks();
-}
 
-function createFireworks(){
-const container=document.getElementById('fireworks');
-for(let i=0;i<30;i++){
-let div=document.createElement('div');
-div.style.position='absolute';
-div.style.left=Math.random()*100+'%';
-div.style.top=Math.random()*100+'%';
-div.style.width='5px';
-div.style.height='5px';
-div.style.background='yellow';
-div.style.animation='explode 1s ease';
-container.appendChild(div);
-setTimeout(()=>div.remove(),1000);
+for(let i=0;i<40;i++){
+let fire=document.createElement('div');
+fire.className='fire';
+
+let x=(Math.random()-0.5)*300+'px';
+let y=(Math.random()-0.5)*300+'px';
+
+fire.style.setProperty('--x',x);
+fire.style.setProperty('--y',y);
+
+fire.style.left='50%';
+fire.style.top='50%';
+
+document.body.appendChild(fire);
+
+setTimeout(()=>fire.remove(),1000);
 }
 }
 
 /* VOICE */
 function playVoice(){
-let currentTime=bg.currentTime;
+let t=bg.currentTime;
 bg.pause();
-
 voice.play();
 
 voice.onended=()=>{
-bg.currentTime=currentTime;
+bg.currentTime=t;
 bg.play();
 };
 }
