@@ -66,8 +66,9 @@ box.appendChild(p);
 function celebrateCake(){
 document.getElementById('playBtn').style.display='block';
 
-for(let i=0;i<5;i++){
-setTimeout(launchFirework,i*300);
+/* launch MANY fireworks */
+for(let i=0;i<10;i++){
+setTimeout(launchFirework,i*200);
 }
 }
 
@@ -77,46 +78,51 @@ let rocket=document.createElement('div');
 rocket.style.position='fixed';
 rocket.style.bottom='0';
 rocket.style.left=Math.random()*100+'%';
-rocket.style.width='3px';
-rocket.style.height='20px';
+rocket.style.width='4px';
+rocket.style.height='25px';
 rocket.style.background='white';
+rocket.style.borderRadius='2px';
 
 document.body.appendChild(rocket);
 
-let target=window.innerHeight/2;
+let target=window.innerHeight/2 + Math.random()*150;
 
 let move=setInterval(()=>{
-rocket.style.bottom=(parseInt(rocket.style.bottom)+10)+'px';
+rocket.style.bottom=(parseInt(rocket.style.bottom)+12)+'px';
 
 if(parseInt(rocket.style.bottom)>=target){
 clearInterval(move);
 explode(rocket);
 rocket.remove();
 }
-},20);
+},16);
 }
 
 function explode(origin){
-for(let i=0;i<40;i++){
+
+for(let i=0;i<80;i++){  // MORE PARTICLES 🔥
 let p=document.createElement('div');
 p.className='particle';
 
 p.style.left=origin.offsetLeft+'px';
 p.style.bottom=origin.style.bottom;
 
-p.style.background=`hsl(${Math.random()*360},100%,50%)`;
+p.style.background=`hsl(${Math.random()*360},100%,60%)`;
 
 document.body.appendChild(p);
 
-let x=(Math.random()-0.5)*300;
-let y=(Math.random()-0.5)*300;
+let x=(Math.random()-0.5)*400;
+let y=(Math.random()-0.5)*400;
 
 p.animate([
 {transform:'translate(0,0)',opacity:1},
 {transform:`translate(${x}px,${y}px)`,opacity:0}
-],{duration:1000});
+],{
+duration:1200,
+easing:'ease-out'
+});
 
-setTimeout(()=>p.remove(),1000);
+setTimeout(()=>p.remove(),1200);
 }
 }
 
@@ -144,4 +150,14 @@ h.style.left=Math.random()*100+'%';
 h.style.top=Math.random()*100+'%';
 h.style.animationDuration=(5+Math.random()*5)+'s';
 hearts.appendChild(h);
+}
+
+function toggleMenu(){
+let menu=document.getElementById('menu');
+menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+function goToPage(n){
+showPage(n);
+document.getElementById('menu').style.display='none';
 }
