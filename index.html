@@ -12,12 +12,11 @@
 <body>
 
 <div class="hearts"></div>
-<div id="fireworks"></div>
 
 <audio id="bgMusic" src="assets/amma.mp3" loop></audio>
 <audio id="voice" src="assets/birthdayvoice.mp3"></audio>
 
-<div class="toggle" onclick="nextPage()">Next →</div>
+<div id="nextBtn" class="toggle" onclick="nextPage()">Next →</div>
 
 <!-- PAGE 1 -->
 <section id="page1" class="page active">
@@ -41,12 +40,20 @@
 <img src="assets/cake.png" class="cake-img" onclick="celebrateCake()">
 
 <p>Tap the cake 🎂</p>
+
+<p class="cake-text">
+Ammi... ❤️<br>
+You deserve the happiest day ever 😭<br>
+Today is only about you 💕<br>
+Make a wish and tap the cake 🎂
+</p>
+
 <button id="playBtn" onclick="playVoice()">Play My Voice ▶</button>
 </section>
 
 <!-- PAGE 4 -->
 <section id="page4" class="page scroll">
-<h2>Our Beautiful Memories 💕</h2>
+<h2 class="title">Our Beautiful Memories 💕</h2>
 
 <div class="gallery">
 
@@ -81,7 +88,7 @@
 </div>
 
 <div class="gift" onclick="openGift()">🎁</div>
-  <p>Tap the gift 🎁</p>
+<p>Tap the gift 🎁</p>
 
 <div id="card" class="final-card">
 <h2>Happy Birthday Ammi ❤️</h2>
@@ -90,7 +97,7 @@ You are my strength...<br>
 My happiness...<br>
 My safe place...<br><br>
 No matter how old I grow,<br>
-I will always be your little child 🥺<br><br>
+I will always be your child 🥺<br><br>
 Thank you for everything 😭❤️
 </p>
 </div>
