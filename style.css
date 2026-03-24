@@ -121,19 +121,24 @@ cursor:pointer;
 
 /* NEXT BUTTON FIX (REAL BUTTON STYLE) */
 .next-bottom{
+display:block;
 width:90%;
 max-width:300px;
 margin:40px auto 20px;
-background:white;
-color:#ff4d6d;
-padding:14px;
+background:linear-gradient(45deg,#ff4d6d,#ff758c);
+color:white;
+padding:15px;
 border:none;
 border-radius:30px;
-text-align:center;
 font-weight:bold;
 font-size:16px;
 cursor:pointer;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.next-bottom:hover{
+transform:scale(1.05);
 }
 
 /* CARD */
@@ -186,6 +191,28 @@ transform:scale(1.08);
 .cake-text{
 margin-top:10px;
 line-height:1.6;
+}
+
+.rocket{
+position:fixed;
+bottom:0;
+width:4px;
+height:20px;
+background:white;
+animation:launch 0.8s linear forwards;
+}
+
+@keyframes launch{
+0%{transform:translateY(0);}
+100%{transform:translateY(-80vh);}
+}
+
+.particle{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+background:yellow;
 }
 
 /* GALLERY */
