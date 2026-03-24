@@ -7,6 +7,20 @@ overflow:hidden;
 }
 
 /* HEARTS */
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1; /* FIX */
+pointer-events:none;
+}
+
+.hearts span{
+opacity:0.6;
+}
+
 .hearts span{
 position:absolute;
 width:20px;
@@ -37,12 +51,16 @@ border-radius:50%;
 /* FIX TOP CUT ISSUE */
 .page{
 display:none;
-height:100vh;
+min-height:100vh; /* FIX */
+height:auto;
 flex-direction:column;
 align-items:center;
-justify-content:flex-start; /* important */
-padding:80px 20px 30px; /* TOP SPACE FIX */
-text-align:center;
+justify-content:flex-start;
+padding:80px 20px 20px;
+}
+
+html, body{
+overflow-x:hidden;
 }
 
 /* EXTRA FIX FOR MOBILE SAFE AREA */
@@ -54,41 +72,57 @@ padding-top: env(safe-area-inset-top);
 #page1{justify-content:center}
 #page4,#page5{justify-content:flex-start;padding-top:40px}
 
-
 .menu-btn{
 position:fixed;
-top:20px;
-right:20px;
-font-size:24px;
-background:white;
-color:#ff4d6d;
-padding:10px 15px;
-border-radius:10px;
-z-index:1000;
+top:15px;
+right:15px;
+width:45px;
+height:45px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(10px);
+border-radius:12px;
+z-index:9999;
 }
 
 .menu{
 position:fixed;
-top:60px;
-right:20px;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(10px);
+top:70px;
+right:15px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(15px);
 padding:15px;
 border-radius:15px;
 display:none;
 flex-direction:column;
 gap:10px;
-z-index:1000;
+z-index:9999;
 }
 
 .menu button{
-background:white;
-color:#ff4d6d;
+background:none;
 border:none;
-padding:8px 12px;
-border-radius:10px;
+color:white;
+font-size:16px;
+padding:8px;
+text-align:left;
 }
 
+.next-bottom{
+width:90%;
+max-width:300px;
+margin:40px auto 20px;
+background:white;
+color:#ff4d6d;
+padding:14px;
+border-radius:30px;
+text-align:center;
+font-weight:bold;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
 
 /* CARD */
 .card{
@@ -137,8 +171,9 @@ border-radius:50%;
 .photo img{width:80%;border-radius:15px}
 
 .title{
-font-size:30px;
-margin-bottom:20px;
+font-size:34px;
+font-weight:600;
+margin-bottom:25px;
 }
 
 /* GIFT */
