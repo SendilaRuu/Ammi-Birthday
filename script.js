@@ -79,45 +79,53 @@ box.appendChild(p);
 /* REAL FIREWORK */
 function celebrateCake(){
 
-for(let i=0;i<10;i++){
+for(let i=0;i<12;i++){
 
 setTimeout(()=>{
+
 let rocket=document.createElement('div');
 rocket.className='rocket';
 
-rocket.style.left=Math.random()*100+'%';
+// random horizontal position
+let x = Math.random() * window.innerWidth;
+rocket.style.left = x + 'px';
 
 document.body.appendChild(rocket);
 
 // explode after reaching top
 setTimeout(()=>{
-createExplosion(rocket.offsetLeft, 200);
+createExplosion(x, window.innerHeight * 0.3);
 rocket.remove();
 },800);
 
-},i*300);
+}, i * 250);
 
 }
 }
 
 function createExplosion(x,y){
 
-for(let i=0;i<30;i++){
+for(let i=0;i<40;i++){
+
 let p=document.createElement('div');
 p.className='particle';
 
-p.style.left=x+'px';
-p.style.top=y+'px';
+// random colors 🔥
+let colors = ['#ff4d6d','#ffd93d','#6efff5','#ffffff','#ff8fab'];
+p.style.background = colors[Math.floor(Math.random()*colors.length)];
 
-let angle=Math.random()*2*Math.PI;
-let distance=Math.random()*120;
+p.style.left = x + 'px';
+p.style.top = y + 'px';
 
-let dx=Math.cos(angle)*distance;
-let dy=Math.sin(angle)*distance;
+let angle = Math.random() * 2 * Math.PI;
+let distance = Math.random() * 150;
+
+let dx = Math.cos(angle) * distance;
+let dy = Math.sin(angle) * distance;
 
 p.animate([
-{transform:'translate(0,0)',opacity:1},
-{transform:`translate(${dx}px,${dy}px)`,opacity:0}
+{ transform:'translate(0,0)', opacity:1 },
+{ transform:`translate(${dx}px,${dy}px)`, opacity:0 }
 ],{
 duration:1000,
 easing:'ease-out'
@@ -126,6 +134,7 @@ easing:'ease-out'
 document.body.appendChild(p);
 
 setTimeout(()=>p.remove(),1000);
+
 }
 }
 
