@@ -20,7 +20,9 @@ flex-direction:column;
 align-items:center;
 }
 
-.active{display:flex}
+.page.active{
+display:flex;
+}
 
 /* CARD */
 .card{
