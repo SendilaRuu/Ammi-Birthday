@@ -1,65 +1,155 @@
-/* REMOVE THIS ❌ */
-/* body{ overflow:hidden; } */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins;
+}
 
-/* ADD THIS ✅ */
 body{
 background:radial-gradient(circle at top,#ff6a88,#0f0c29);
 color:white;
+overflow-x:hidden;
 }
 
 /* PAGE FIX */
 .page{
 display:none;
 min-height:100vh;
-height:auto;
+padding:100px 20px 60px;
 flex-direction:column;
 align-items:center;
-justify-content:flex-start;
-padding:90px 20px 40px;
 }
 
-/* REMOVE OLD FLOAT BTN */
-.toggle{
-display:none;
+.active{display:flex}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.15);
+padding:25px;
+border-radius:20px;
 }
 
-/* NEXT BUTTON */
+/* BUTTON */
 .next-bottom{
-width:90%;
-max-width:300px;
-margin:40px auto 20px;
+margin-top:40px;
+padding:14px 25px;
 background:white;
 color:#ff4d6d;
-padding:14px;
+border:none;
 border-radius:30px;
-text-align:center;
 font-weight:bold;
-box-shadow:0 5px 20px rgba(0,0,0,0.2);
+font-size:16px;
+cursor:pointer;
 }
 
-/* HEARTS FIX */
+/* HEARTS */
 .hearts{
 position:fixed;
 width:100%;
 height:100%;
 z-index:-1;
-pointer-events:none;
 }
 
-/* MENU FIX */
+.hearts span{
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+transform:rotate(45deg);
+animation:float 8s linear infinite;
+}
+
+.hearts span::before,
+.hearts span::after{
+content:'';
+position:absolute;
+width:20px;
+height:20px;
+background:red;
+border-radius:50%;
+}
+.hearts span::before{top:-10px}
+.hearts span::after{left:-10px}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+/* MENU */
 .menu-btn{
 position:fixed;
 top:15px;
 right:15px;
-z-index:9999;
+background:white;
+color:#ff4d6d;
+padding:10px;
+border-radius:10px;
+z-index:1000;
 }
 
 .menu{
-z-index:9999;
+position:fixed;
+top:70px;
+right:15px;
+background:rgba(0,0,0,0.7);
+padding:10px;
+border-radius:10px;
+display:none;
+flex-direction:column;
+gap:10px;
+z-index:1000;
 }
 
-/* MEMORY TITLE */
+.menu button{
+background:none;
+border:none;
+color:white;
+}
+
+/* CAKE */
+.cake-img{
+width:260px;
+margin:20px;
+}
+
+/* GALLERY */
+.gallery img{
+width:80%;
+border-radius:15px;
+margin-bottom:10px;
+}
+
 .title{
-font-size:34px;
-margin-bottom:25px;
+font-size:32px;
+margin-bottom:20px;
+}
+
+/* GIFT */
+.gift{
+font-size:80px;
+margin-top:20px;
+cursor:pointer;
+}
+
+/* CARD POP */
+.final-card{
+display:none;
+background:white;
+color:#ff4d6d;
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+animation:pop 0.6s;
+}
+
+@keyframes pop{
+from{transform:scale(0);}
+to{transform:scale(1);}
+}
+
+/* MENU TEXT */
+.menu-hint{
+margin-bottom:20px;
+opacity:0.8;
 }
