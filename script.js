@@ -10,11 +10,11 @@ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
 document.getElementById('page'+n).classList.add('active');
 current=n;
 
-/* hide next button page1 & 5 */
-if(n===1 || n===5){
-nextBtn.style.display='none';
+// hide menu in page 1
+if(n === 1){
+document.querySelector('.menu-btn').style.display = "none";
 }else{
-nextBtn.style.display='block';
+document.querySelector('.menu-btn').style.display = "flex";
 }
 }
 
@@ -78,65 +78,54 @@ box.appendChild(p);
 
 /* REAL FIREWORK */
 function celebrateCake(){
-document.getElementById('playBtn').style.display='block';
 
-/* launch MANY fireworks */
 for(let i=0;i<10;i++){
-setTimeout(launchFirework,i*200);
-}
-}
 
-function launchFirework(){
+setTimeout(()=>{
 let rocket=document.createElement('div');
+rocket.className='rocket';
 
-rocket.style.position='fixed';
-rocket.style.bottom='0';
 rocket.style.left=Math.random()*100+'%';
-rocket.style.width='4px';
-rocket.style.height='25px';
-rocket.style.background='white';
-rocket.style.borderRadius='2px';
 
 document.body.appendChild(rocket);
 
-let target=window.innerHeight/2 + Math.random()*150;
-
-let move=setInterval(()=>{
-rocket.style.bottom=(parseInt(rocket.style.bottom)+12)+'px';
-
-if(parseInt(rocket.style.bottom)>=target){
-clearInterval(move);
-explode(rocket);
+// explode after reaching top
+setTimeout(()=>{
+createExplosion(rocket.offsetLeft, 200);
 rocket.remove();
+},800);
+
+},i*300);
+
 }
-},16);
 }
 
-function explode(origin){
+function createExplosion(x,y){
 
-for(let i=0;i<80;i++){  // MORE PARTICLES 🔥
+for(let i=0;i<30;i++){
 let p=document.createElement('div');
 p.className='particle';
 
-p.style.left=origin.offsetLeft+'px';
-p.style.bottom=origin.style.bottom;
+p.style.left=x+'px';
+p.style.top=y+'px';
 
-p.style.background=`hsl(${Math.random()*360},100%,60%)`;
+let angle=Math.random()*2*Math.PI;
+let distance=Math.random()*120;
 
-document.body.appendChild(p);
-
-let x=(Math.random()-0.5)*400;
-let y=(Math.random()-0.5)*400;
+let dx=Math.cos(angle)*distance;
+let dy=Math.sin(angle)*distance;
 
 p.animate([
 {transform:'translate(0,0)',opacity:1},
-{transform:`translate(${x}px,${y}px)`,opacity:0}
+{transform:`translate(${dx}px,${dy}px)`,opacity:0}
 ],{
-duration:1200,
+duration:1000,
 easing:'ease-out'
 });
 
-setTimeout(()=>p.remove(),1200);
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),1000);
 }
 }
 
