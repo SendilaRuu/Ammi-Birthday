@@ -5,23 +5,131 @@ box-sizing:border-box;
 font-family:Poppins;
 }
 
+/* BODY FIX */
 body{
 background:radial-gradient(circle at top,#ff6a88,#0f0c29);
 color:white;
+overflow-x:hidden; /* FIX */
+}
+
+/* REMOVE SCROLL BUG */
+html{
 overflow-x:hidden;
+}
+
+/* HEARTS */
+.hearts{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+pointer-events:none;
+}
+
+.hearts span{
+position:absolute;
+width:18px;
+height:18px;
+background:red;
+transform:rotate(45deg);
+opacity:0.7;
+animation:float 6s linear infinite;
+}
+
+/* FIX HEART SHAPE */
+.hearts span::before,
+.hearts span::after{
+content:'';
+position:absolute;
+width:18px;
+height:18px;
+background:red;
+border-radius:50%;
+}
+.hearts span::before{top:-9px}
+.hearts span::after{left:-9px}
+
+@keyframes float{
+0%{
+transform:translateY(100vh) rotate(45deg);
+}
+100%{
+transform:translateY(-10vh) rotate(45deg);
+}
 }
 
 /* PAGE FIX */
 .page{
 display:none;
 min-height:100vh;
-padding:100px 20px 60px;
+height:auto;
 flex-direction:column;
 align-items:center;
+justify-content:flex-start;
+padding:90px 20px 40px; /* FIX spacing */
 }
 
-.page.active{
+.active{display:flex}
+
+#page1{justify-content:center}
+
+/* MENU */
+.menu-btn{
+position:fixed;
+top:15px;
+right:15px;
+width:45px;
+height:45px;
 display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+border-radius:12px;
+z-index:9999;
+}
+
+.menu{
+position:fixed;
+top:70px;
+right:15px;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(15px);
+padding:15px;
+border-radius:15px;
+display:none;
+flex-direction:column;
+gap:10px;
+z-index:9999;
+}
+
+.menu button{
+background:none;
+border:none;
+color:white;
+font-size:16px;
+padding:8px;
+cursor:pointer;
+}
+
+/* NEXT BUTTON FIX (REAL BUTTON STYLE) */
+.next-bottom{
+width:90%;
+max-width:300px;
+margin:40px auto 20px;
+background:white;
+color:#ff4d6d;
+padding:14px;
+border:none;
+border-radius:30px;
+text-align:center;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
 }
 
 /* CARD */
@@ -31,100 +139,72 @@ padding:25px;
 border-radius:20px;
 }
 
-/* BUTTON */
-.next-bottom{
-margin-top:40px;
-padding:14px 25px;
-background:white;
-color:#ff4d6d;
+/* INPUT */
+input{
+padding:10px;
 border:none;
-border-radius:30px;
-font-weight:bold;
-font-size:16px;
+border-radius:10px;
+margin-top:10px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+margin-top:10px;
 cursor:pointer;
 }
 
-/* HEARTS */
-.hearts{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-1;
+/* TEXT */
+.text-box{
+max-height:70vh;
+overflow:auto;
 }
 
-.hearts span{
-position:absolute;
-width:20px;
-height:20px;
-background:red;
-transform:rotate(45deg);
-animation:float 8s linear infinite;
-}
-
-.hearts span::before,
-.hearts span::after{
-content:'';
-position:absolute;
-width:20px;
-height:20px;
-background:red;
-border-radius:50%;
-}
-.hearts span::before{top:-10px}
-.hearts span::after{left:-10px}
-
-@keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh)}
-}
-
-/* MENU */
-.menu-btn{
-position:fixed;
-top:15px;
-right:15px;
-background:white;
-color:#ff4d6d;
-padding:10px;
-border-radius:10px;
-z-index:1000;
-}
-
-.menu{
-position:fixed;
-top:70px;
-right:15px;
-background:rgba(0,0,0,0.7);
-padding:10px;
-border-radius:10px;
-display:none;
-flex-direction:column;
-gap:10px;
-z-index:1000;
-}
-
-.menu button{
-background:none;
-border:none;
-color:white;
+.text-box p{
+margin:6px 0;
+line-height:1.5;
 }
 
 /* CAKE */
 .cake-img{
 width:260px;
-margin:20px;
+margin:25px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cake-img:hover{
+transform:scale(1.08);
+}
+
+/* CAKE TEXT */
+.cake-text{
+margin-top:10px;
+line-height:1.6;
 }
 
 /* GALLERY */
-.gallery img{
-width:80%;
-border-radius:15px;
-margin-bottom:10px;
+.gallery{
+width:100%;
 }
 
-.title{
-font-size:32px;
+.photo{
 margin-bottom:20px;
+text-align:center;
+}
+
+.photo img{
+width:75%;
+border-radius:15px;
+}
+
+/* MEMORY TITLE */
+.title{
+font-size:34px;
+font-weight:600;
+margin-bottom:25px;
+text-align:center;
 }
 
 /* GIFT */
@@ -142,16 +222,16 @@ color:#ff4d6d;
 padding:20px;
 border-radius:20px;
 margin-top:20px;
-animation:pop 0.6s;
+animation:pop 0.6s ease;
 }
 
 @keyframes pop{
-from{transform:scale(0);}
-to{transform:scale(1);}
+0%{transform:translateY(80px) scale(0.8);opacity:0}
+60%{transform:translateY(-10px) scale(1.05)}
+100%{transform:translateY(0);opacity:1}
 }
 
-/* MENU TEXT */
-.menu-hint{
-margin-bottom:20px;
-opacity:0.8;
+/* REMOVE OLD FLOAT BUTTON COMPLETELY */
+.toggle{
+display:none;
 }
