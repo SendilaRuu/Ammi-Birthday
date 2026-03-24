@@ -5,7 +5,6 @@
 body{
 background:radial-gradient(circle at top,#ff6a88,#0f0c29);
 color:white;
-overflow-x:hidden;
 }
 
 /* PAGE FIX */
